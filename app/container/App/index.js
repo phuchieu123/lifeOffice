@@ -1,8 +1,7 @@
-
 import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from '@react-navigation/native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import {useNavigation} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -14,18 +13,16 @@ import ProjectPage from '../ProjectPage';
 import NotificationPage from '../NotificationPage';
 const AppHome = () => {
   const Tab = createBottomTabNavigator();
-  useEffect(() => {
-    //get username
-    AsyncStorage.getItem('username').then(res => {
-      setUsename(res);
-    });
-
-    // get domain
-    AsyncStorage.getItem('domain').then(res => {
-      setDomain(res);
-    });
-  }, []);
-
+  // useEffect(() => {
+  //   //get username
+  //   AsyncStorage.getItem('username').then(res => {
+  //     setUsename(res);
+  //   });
+  //   // get domain
+  //   AsyncStorage.getItem('domain').then(res => {
+  //     setDomain(res);
+  //   });
+  // }, []);
   const TabArr = [
     {
       route: 'Home',
@@ -60,14 +57,13 @@ const AppHome = () => {
       component: LifeDriver,
     },
     {
-      route:'thong bao',
-      lable:'thong bao',
+      route: 'thong bao',
+      lable: 'thong bao',
       icon: MaterialIcons,
-      activeIcon:"notifications",
-      inActiveIcon:'grid-outline',
+      activeIcon: 'notifications',
+      inActiveIcon: 'grid-outline',
       component: NotificationPage,
-       
-    }
+    },
   ];
 
   return (
@@ -80,6 +76,7 @@ const AppHome = () => {
           backgroundColor: 'green',
         },
       }}>
+      {/* map trả về các tabBar component của trang home */}
       {TabArr.map((item, index) => {
         return (
           <Tab.Screen
@@ -90,7 +87,10 @@ const AppHome = () => {
               tabBarLabel: ({focused}) => {
                 if (focused) {
                   // Hiển thị tabBarLabel khi được tập trung
-                  return <Text style={{color: 'white',paddingBottom: 5}}>{route.name}</Text>; 
+                  return (
+                    <Text style={{color: 'white', paddingBottom: 5}}>
+                      {route.name}
+                    </Text>);
                 } else {
                   // Ẩn tabBarLabel khi không được tập trung
                   return null;
