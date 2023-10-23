@@ -64,7 +64,7 @@ export default ProjectPage = () => {
                     <Icon name='search' style={{flex: 1, paddingLeft: 10,  color: 'rgba(46, 149, 46, 1)', fontSize: 15}}></Icon>
                     <TextInput
                      name="search"
-                     placeholder='tìm kiếm'
+                     placeholder='Tìm kiếm'
                      value={search}
                      onChangeText={(text) => setSearch(text)}
                      style={{flex:6, padding: 0,}}>

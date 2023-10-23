@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { Text } from 'react-native';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {useNavigation} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import LifeDriver from '../LifeDriver';
-import HrmPage from '../HrmPage';
 import Home from '../Home';
-import ProjectPage from '../ProjectPage';
+import HrmPage from '../HrmPage';
+import LifeDriver from '../LifeDriver';
 import NotificationPage from '../NotificationPage';
+import ProjectPage from '../ProjectPage';
 const AppHome = () => {
   const Tab = createBottomTabNavigator();
   // useEffect(() => {

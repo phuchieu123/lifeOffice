@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import styles from './styles';
-import {TouchableOpacity, TextInput, Image, Alert} from 'react-native';
-import {Item, Input, Button, Text, Spinner, View} from 'native-base';
-import {KeyboardAvoidingView} from 'react-native';
-import Background from './components/Background';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import { Button, Spinner, Text, View } from 'native-base';
+import React, { useState } from 'react';
+import { Alert, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from '@react-navigation/native';
+import Background from './components/Background';
+import styles from './styles';
 const Login = () => {
   const navigation = useNavigation();
   const [isBusy, setIsBusy] = useState(false);
@@ -45,9 +44,9 @@ const Login = () => {
       !localData.username ||
       !localData.password
     ) {
-      Alert.alert('nhap thieu truong roi');
+      Alert.alert('Nhập thiểu trường rồi');
     } else {
-      Alert.alert('tài khoản hoặc mật khẩu sai');
+      Alert.alert('Tài khoản hoặc mật khẩu sai');
     }
   };
 
@@ -56,7 +55,7 @@ const Login = () => {
       <Background />
       <KeyboardAvoidingView style={{flex: 1}}>
         <View style={styles.form}>
-        {/* bắt đầu input domain */}
+          {/* bắt đầu input domain */}
           <View style={styles.host}>
             <MaterialIcons
               active
@@ -67,7 +66,7 @@ const Login = () => {
             <TextInput
               style={{flex: 1}}
               name="domain"
-              placeholder={'tên miền'}
+              placeholder={'Tên miền'}
               value={localData.domain}
               onChangeText={text => handleChange('domain', text)}
               disabled={isBusy}
@@ -80,7 +79,7 @@ const Login = () => {
           <View rounded last style={styles.input} disabled={isBusy}>
             <Icon active name="user" style={{padding: 10, color: 'black'}} />
             <TextInput
-              placeholder={'tên đăng nhập'}
+              placeholder={'Tên đăng nhập'}
               name="username"
               value={localData.username}
               onChangeText={text => handleChange('username', text)}
@@ -98,7 +97,7 @@ const Login = () => {
               style={{padding: 10, color: 'black'}}
             />
             <TextInput
-              placeholder={'mật khẩu'}
+              placeholder={'Mật khẩu'}
               name="password"
               value={localData.password}
               secureTextEntry={isSecureEntry}

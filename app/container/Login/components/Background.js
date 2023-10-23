@@ -14,7 +14,6 @@ export default Background;
 const styles = {
   image: {
     position: 'absolute',
-    width: '100%',
-    height: deviceHeight,
+    width: '100%',height: deviceHeight,
   },
 };
