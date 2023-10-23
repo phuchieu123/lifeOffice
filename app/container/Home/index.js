@@ -189,7 +189,7 @@ export default Home = () => {
 
             </View> */}
 
-            <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
+            {/* <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
             {(clientId !== 'HADO') ? null : <ManageDocument navigation={navigation} incomingData={incomingData} outgoingData={outgoingData} />}
             {!bosRole.GET ? null : <DashBoardBos navigation={navigation} kanbanBosConfigs={kanbanBosConfigs} query={query} />}
             {!taskRole.GET ? null : <DashBoardTask navigation={navigation} kanbanTaskConfigs={kanbanTaskConfigs} query={query} />}
@@ -197,7 +197,7 @@ export default Home = () => {
             {!calendarRole.GET ? null : <MeetingSchedule />}
             {!calendarRole.GET ? null : <WorkingSchedule profile={profile} />}
           </View>
-        </ScrollView> */}
+        </ScrollView> */} */}
       </View> 
         </Container>
     );
