@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Button, Icon, Input, Item, Spinner, Text, View } from 'native-base';
+import { Button, Spinner, Text, View } from 'native-base';
 import React, { memo, useEffect, useState } from 'react';
 import { Image, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
