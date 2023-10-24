@@ -1,18 +1,4 @@
 module.exports = {
-  root: {
-  "parser": "babel-eslint",
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
-  },
-  "env": {
-    "es6": true
-  },
-  "plugins": [
-    "react"
-  ]
-}
-,
+  root: true,
   extends: '@react-native-community',
-  
 };
