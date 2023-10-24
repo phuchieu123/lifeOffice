@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Spinner, Text, View } from 'native-base';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Alert, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -12,43 +12,127 @@ const Login = () => {
   const [isBusy, setIsBusy] = useState(false);
   const [isSecureEntry, setIsSecureEntry] = useState(true);
   const [localData, setLocalData] = useState({
-    domain: '',
-    username: '',
-    password: '',
   });
-  const dataLogin = {
-    domain: 'lifetek',
-    username: 'NPH',
-    password: '04052005',
-  };
-  const handleChange = (name, value) => {
+  // const dataLogin = {
+  //   domain: 'lifetek',
+  //   username: 'NPH',
+  //   password: '04052005',
+  // };
+  // const handleChange = (name, value) => {
+  //   setLocalData({
+  //     ...localData,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const handleLogin = () => {
+  //   if (
+  //     localData.domain === dataLogin.domain &&
+  //     localData.username === dataLogin.username &&
+  //     localData.password === dataLogin.password
+  //   ) {
+  //     AsyncStorage.setItem('domain', dataLogin.domain);
+  //     AsyncStorage.setItem('username', dataLogin.username);
+  //     AsyncStorage.setItem('password', dataLogin.password);
+
+  //     navigation.navigate('AppHome');
+  //   } else if (
+  //     !localData.domain ||
+  //     !localData.username ||
+  //     !localData.password
+  //   ) {
+  //     Alert.alert('Nhập thiểu trường rồi');
+  //   } else {
+  //     Alert.alert('Tài khoản hoặc mật khẩu sai');
+  //   }
+  // };
+
+  useEffect(() => {
+    init()
+  }, [])
+
+
+  const init = async () => {
+    const domain = await DOMAIN_URL()
+    const username = await getData('username')
     setLocalData({
-      ...localData,
-      [name]: value,
-    });
+      domain,
+      username,
+      // domain: 'ievn.lifetek.vn',
+      // username: 'maihtn4x',
+      // password: '12345678',
+
+      // domain: 'qlkh.ievn.com.vn',
+      // username: 'maihtn4x',
+      // password: '12345678',
+
+      // domain: 'internal.lifetek.vn',
+      // username: 'bachdv@lifetek.vn',
+      // password: '12345678',
+
+      // domain: 'stagingerp.lifetek.vn',
+      // username: 'admin999',
+      // password: '12345678',
+
+      // domain: 'crm.lifetek.vn',
+      // username: 'admin3300',
+      // password: 'legBHE84',
+
+
+      // domain: 'maw.lifetek.vn',
+      // username: 'admin_maw',
+      // password: '12345678',
+
+
+      // domain: 'quanlytoanha.lifetek.vn',
+      // username: 'nhungpth',
+      // password: '123456789',
+    })
   };
 
-  const handleLogin = () => {
-    if (
-      localData.domain === dataLogin.domain &&
-      localData.username === dataLogin.username &&
-      localData.password === dataLogin.password
-    ) {
-      AsyncStorage.setItem('domain', dataLogin.domain);
-      AsyncStorage.setItem('username', dataLogin.username);
-      AsyncStorage.setItem('password', dataLogin.password);
-
-      navigation.navigate('AppHome');
-    } else if (
-      !localData.domain ||
-      !localData.username ||
-      !localData.password
-    ) {
-      Alert.alert('Nhập thiểu trường rồi');
-    } else {
-      Alert.alert('Tài khoản hoặc mật khẩu sai');
+  const handleLogin = async () => {
+    const { domain, username, password } = localData
+    try {
+      let isValid = {};
+      let loginSuccess;
+      if (!domain) isValid.domain = true
+      if (!username) isValid.username = true
+      if (!password) isValid.password = true
+      if (!Object.keys(isValid).length) {
+        setIsBusy(true);
+        const data = {
+          username: username.trim(),
+          password: password,
+          domain,
+          grant_type: 'password',
+          scope: 'user',
+          client_id: 'authServer',
+        };
+        const config = await getConfig(domain)
+        console.log('config', config)
+        if (config.appUrl) {
+          const isLogin = await login(data)
+          if (isLogin) {
+            const result = await Promise.all([
+              getToken(),
+              getApproveToken(),
+              getDriverToken(),
+            ])
+            console.log(result, "token");
+            if (result.length === result.filter(e => e).length) {
+              await storeData('username', data.username)
+              navigate('LoadingScreen')
+              loginSuccess = true
+            }
+          }
+        }
+        if (!loginSuccess) ToastCustom({ text: 'Đăng nhập thất bại', type: 'danger' })
+      } else setErr(isValid)
+    } catch (error) {
+      console.log('error', error)
     }
-  };
+    setIsBusy(false);
+  }
 
   return (
     <View style={styles.content}>

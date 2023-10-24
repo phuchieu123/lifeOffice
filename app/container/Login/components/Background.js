@@ -1,6 +1,5 @@
-import React, {memo} from 'react';
-import PropTypes from 'prop-types';
-import {ImageBackground, Image, Dimensions} from 'react-native';
+import React from 'react';
+import { Dimensions, Image } from 'react-native';
 // import styled from 'styled-components';
 import images from '../../../images';
 const deviceHeight = Dimensions.get('window').height;

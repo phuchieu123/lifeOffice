@@ -1,16 +1,18 @@
-import { Container, Title } from 'native-base';
+import {Container, Title} from 'native-base';
 import React from 'react';
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import DashBoardBos from './components/DashBoardBos';
 const styles = StyleSheet.create({
   bannerHome: {
     width: '100%',
@@ -19,7 +21,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    
   },
   textBanner: {
     color: 'white',
@@ -53,12 +54,15 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     bottom: 20,
-    // flex: 1,
+    paddingTop: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    flex: 7,
     height: 'auto',
     // alignItems: 'flex-end',
     justifyContent: 'flex-end',
     alignSelf: 'stretch',
-    backgroundColor: '#eee',
+    backgroundColor: '#ccc',
     marginTop: 10,
     // borderRadius: 15,
     borderTopLeftRadius: 15,
@@ -84,19 +88,20 @@ const styles = StyleSheet.create({
 });
 export default Home = () => {
   return (
-    <Container style={{width: '100%'}}>
+    // header trang chur
+    <View style={{width: '100%'}}>
       <View style={styles.bannerHome}>
         <Text style={styles.textBanner}>Trang chủ</Text>
         <Icon name="filter" style={styles.iconBanner}></Icon>
       </View>
-
-       <View style={{backgroundColor: '#eee', width: '100%'}}>
+                {/* bắt đầu banner trang chủ */}
+      <View style={{backgroundColor: '#eee', width: '100%'}}>
         <ScrollView>
-          <View style={{backgroundColor: '#99CC99', paddingBottom: 0}}>
+          <View style={{backgroundColor: '#99CC99', paddingBottom: 0, flex: 3}}>
             <Image
               resizeMode="contain"
               source={require('../../images/logo.jpg')}
-              style={{  
+              style={{
                 margin: 10,
                 width: 120,
                 height: 120,
@@ -113,42 +118,38 @@ export default Home = () => {
                 marginTop: 0,
                 marginBottom: 40,
               }}>
-              <Text> 
+              <Text style={{color: 'white'}}>
                 {/* {profile.name} */}
-                 Nguyễn Phúc Hiẻu
+                Nguyễn Phúc Hiẻu
               </Text>
-            </View> 
-            {/* <View
+            </View>
+            <View
               style={{
                 flexDirection: 'row',
                 position: 'absolute',
-                bottom: 10,
+                bottom: 15,
                 right: 0,
               }}>
               <MaterialCommunityIcons
                 name="message-text"
-                style={{paddingRight: 5, fontSize: 30}}
+                style={{paddingRight: 10, fontSize: 30, color: '#fff'}}
               />
               <Icon
                 name="user-circle"
-                type="FontAwesome"
                 style={{paddingRight: 10, fontSize: 30, color: '#fff'}}
               />
-              <Icon
+              <Ionicons
                 name="settings"
-                type="Ionicons"
                 style={{paddingRight: 10, fontSize: 30, color: '#fff'}}
               />
             </View>
-          </View>  */}
-
-          {/* test đến đây  */}
-           {/* <View style={styles.wrapper}>
+          </View>
+              {/* kết thúc banner */}
+          <View style={styles.wrapper}>
             <View style={styles.view}>
               <TouchableOpacity style={styles.button}>
                 <MaterialIcons
-                  name="playlist_add_check"
-                  type="MaterialIcons"
+                  name="playlist-add-check"
                   style={{
                     textAlign: 'center',
                     fontSize: 40,
@@ -160,10 +161,14 @@ export default Home = () => {
                   Phê duyệt
                 </Text>
               </TouchableOpacity>
-            </View>*/}
-          </View> 
+            </View>
+
+            <View style={{flex: 3}}>
+                <DashBoardBos/>
+            </View>
+          </View>
         </ScrollView>
-      </View> 
-    </Container>
+      </View>
+    </View>
   );
 };

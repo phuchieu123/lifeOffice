@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 export default ProjectPage = () => {
     const [isShowSearch, setIsShowSearch]=useState(false)
     const [search, setSearch] = useState('')
@@ -71,7 +71,7 @@ export default ProjectPage = () => {
                     </TextInput>
                     <View style={{flexDirection: 'row',flex: 2, justifyContent:'space-around', alignItems: 'center' }}>
                     <Text style={{ color: 'rgba(46, 149, 46, 1)', fontSize: 20}} onPress={()=>setSearch('')} >-</Text>
-                    <Text style={{ color: 'rgba(46, 149, 46, 1)', fontSize: 15}} onPress={()=>{setIsShowSearch(false)}}>đóng</Text>
+                    <Text style={{ color: 'rgba(46, 149, 46, 1)', fontSize: 15}} onPress={()=>{setIsShowSearch(false)}}>Đóng</Text>
                     </View>
                 </View>:null     
                 }
