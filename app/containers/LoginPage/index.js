@@ -1,14 +1,13 @@
-import _ from 'lodash';
 import { Button, Spinner, Text, View } from 'native-base';
 import React, { memo, useEffect, useState } from 'react';
-import { Image, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { CONFIG, LIST_CONFIG } from '../../../urlConfig';
 import { navigate } from '../../RootNavigation';
 import { getApproveToken, getDriverToken, getToken, login } from '../../api/oauth';
-import { RenderBanner } from '../../components/RenderBanner';
 import ToastCustom from '../../components/ToastCustom';
 import { DOMAIN_URL, getConfig } from '../../configs/Paths';
 import request from '../../utils/request';
@@ -136,62 +135,90 @@ export function LoginPage(props) {
   }
 
   return (
-    <View style={styles.content} >
+    <View style={styles.content}>
       <Background />
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : null} keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}>
+      <KeyboardAvoidingView style={{flex: 1}}>
         <View style={styles.form}>
-          {_.get(LIST_CONFIG, `${CONFIG}.HOSTNAME`) ? null : <Item rounded last style={styles.input} error={err.domain} disabled={isBusy}>
-            <Icon active name="domain" type="MaterialIcons" />
-            <Input
-              placeholder={"Tên miền"}
+          {/* bắt đầu input domain */}
+          <View style={styles.host}>
+            <MaterialIcons
+              active
+              name="domain"
+              type="MaterialIcons"
+              style={{padding: 10, color: 'black'}}
+            />
+            <TextInput
+              style={{flex: 1}}
+              name="domain"
+              placeholder={'Tên miền'}
               value={localData.domain}
-              onChangeText={e => onChange('domain', e)}
+              onChangeText={text => onChange('domain', text)}
               disabled={isBusy}
               autoCapitalize="none"
+              autoFocus={true}
+              returnKeyType="next"
             />
-            {isLoadingLogo ? <Image
-              style={{ width: 60, height: 60, position: 'absolute', right: 20, resizeMode: "contain" }}
-              source={{
-                uri: logo,
-              }}
-            /> : null}
-          </Item>}
-
-          <Item rounded last style={styles.input} error={err.username} disabled={isBusy}>
-            <Icon active name="person" type="MaterialIcons" />
-            <Input
-              placeholder={"Tài khoản"}
+          </View>
+          {/* bắt đầu input đăng nhập */}
+          <View rounded last style={styles.input} disabled={isBusy}>
+            <Icon active name="user" style={{padding: 10, color: 'black'}} />
+            <TextInput
+              placeholder={'Tên đăng nhập'}
+              name="username"
               value={localData.username}
-              onChangeText={e => onChange('username', e)}
+              onChangeText={text => onChange('username', text)}
               disabled={isBusy}
               autoCapitalize="none"
+              style={{flex: 1}}
+              returnKeyType="next"
             />
-          </Item>
-          <Item rounded last style={styles.input} error={err.password} disabled={isBusy}>
-            <Icon active name="vpn-key" type="MaterialIcons" color="white" />
-            <Input
-              placeholder={"Mật khẩu"}
-              secureTextEntry={isSecureEntry}
+          </View>
+          {/* bắt đầu input mật khẩu */}
+          <View rounded last style={styles.input} disabled={isBusy}>
+            <MaterialIcons
+              active
+              name="vpn-key"
+              style={{padding: 10, color: 'black'}}
+            />
+            <TextInput
+              placeholder={'Mật khẩu'}
+              name="password"
               value={localData.password}
-              onChangeText={e => onChange('password', e)}
+              secureTextEntry={isSecureEntry}
+              onChangeText={text => onChange('password', text)}
               disabled={isBusy}
               autoCapitalize="none"
-              autoCorrect={false}
+              style={{flex: 1}}
+              returnKeyType="done"
             />
             <TouchableOpacity
-              onPress={() => { setIsSecureEntry((prev) => !prev) }}>
-              <Icon active name="eye" type="AntDesign" color="white">{isSecureEntry}</Icon>
+              style={{
+                position: 'absolute',
+                right: 20,
+              }}
+              onPress={() => {
+                setIsSecureEntry(prev => !prev);
+              }}>
+              <Icon active name="eye" color="black"></Icon>
             </TouchableOpacity>
-          </Item>
-
-          <Button block rounded dark style={styles.loginBtn} onPress={handleLogin} disabled={isBusy}>
-            {isBusy && <Spinner color="gray" />}
-            {!isBusy ? <Text style={styles.loginBtnText}>{"Đăng nhập"}</Text> : null}
-          </Button>
+          </View>
+          <TouchableOpacity>
+            <Button
+              block
+              rounded
+              dark
+              style={styles.loginBtn}
+              disabled={isBusy}
+              onPress={handleLogin}>
+              {isBusy && <Spinner color="gray" />}
+              {!isBusy ? (
+                <Text style={styles.loginBtnText}>Đăng nhập</Text>
+              ) : null}
+            </Button>
+          </TouchableOpacity>
         </View>
-        <RenderBanner viewStyle={{ height: 200, width: '100%', bottom: 0, alignSelf: 'center', zIndex: 100 }} />
       </KeyboardAvoidingView>
-    </View >
+    </View>
   );
 }
 
