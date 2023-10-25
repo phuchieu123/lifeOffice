@@ -1,8 +1,9 @@
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, extendTheme } from 'native-base';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import App from './containers/App';
+import theme from 'utils/customTheme';
 import createReducer from './reducers';
 
 const initialState = {};
@@ -11,11 +12,11 @@ const initialState = {};
 // YellowBox.ignoreWarnings([""]);
 // LogBox.ignoreAllLogs(true)
 const store = configureStore(createReducer, initialState);
-
+const customTheme = extendTheme(theme);
 function AppRoot() {
   return (
     <Provider store={store}>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={customTheme}>
           <App />
       </NativeBaseProvider>
     </Provider>
