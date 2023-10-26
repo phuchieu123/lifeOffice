@@ -5,7 +5,8 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import _ from 'lodash'
 import BackHeader from '../../components/Header/BackHeader';
-import { Container, Icon, Switch, Text } from 'native-base';
+import { Switch, Text } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Alert, BackHandler, TouchableOpacity, View } from 'react-native';
 import TouchID from 'react-native-touch-id'
 import { Card } from 'react-native-paper';
@@ -83,11 +84,11 @@ export function FingerprintUser(props) {
     return (
         <>
             <BackHeader title="Cài đặt chung" navigation={navigation} />
-            <Container>
+            <View>
                 <Card>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20 }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Icon name='fingerprint' type='MaterialCommunityIcons' style={{ marginRight: 10, fontSize: 40 }} />
+                            <Icon name='fingerprint' style={{ marginRight: 10, fontSize: 40 }} />
                             <Text style={{ textAlignVertical: 'center' }}>Đăng nhập bằng sinh trắc học</Text>
                         </View>
                         <View style={{ marginTop: 14 }}>
@@ -109,7 +110,7 @@ export function FingerprintUser(props) {
 
                     </View>
                 </Card>
-            </Container>
+            </View>
         </>
     );
 }
