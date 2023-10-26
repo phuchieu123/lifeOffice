@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button} from 'react-native';
+import { Text, View, Button } from 'native-base';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { API_COUNT_SOURCE, API_REPORT_BOS } from '../../configs/Paths';
 import { handleSearch, serialize } from '../../utils/common';
 import { BOS_KANBAN_DEFAULT } from '../../utils/constants';
 import LoadingLayout from 'components/LoadingLayout';
 import { navigate } from '../../RootNavigation';
 import { getCount } from '../../api/bos';
-import Icon from 'react-native-vector-icons/Ionicons'
 
 
 export default DashBoardBos = (props) => {
