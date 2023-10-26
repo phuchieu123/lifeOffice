@@ -68,6 +68,7 @@ export function LoginPage(props) {
   };
 
   const handleLogin = async () => {
+    console.log('vao day');
     const { domain, username, password } = localData
     try {
       let isValid = {};
