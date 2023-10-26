@@ -81,14 +81,14 @@ function App(props) {
   }, []);
 
   useEffect(() => {
-    // if (isLoggedIn) {
-    //   navigate('App')
-    // } else if (isLoggedIn === false) {
-    //   navigate('Login')
-    //   // logoutFirebase()
-    //   clearAllData()
-    // }
-    navigate('Login')
+    if (isLoggedIn) {
+      navigate('App')
+    } else if (isLoggedIn === false) {
+      navigate('Login')
+      // logoutFirebase()
+      clearAllData()
+    }
+    // navigate('Login')
 
     if (!isLoggedIn && socket) socket.close()
   }, [isLoggedIn])

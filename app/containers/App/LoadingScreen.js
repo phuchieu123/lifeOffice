@@ -29,9 +29,9 @@ import {
   getRoles,
 } from '../../api/configs';
 import { getProfile } from '../../api/employees';
-import { onLogout } from 'utils/deviceEventEmitter';
+import { onLogout } from '../../utils/deviceEventEmitter';
 import { createSocket } from 'utils/socket';
-import { onLogin as onLoginEvent } from 'utils/deviceEventEmitter';
+import { onLogin as onLoginEvent } from '../../utils/deviceEventEmitter';
 import { messagingUserPermission } from 'utils/permission';
 
 const optionalConfigObject = {

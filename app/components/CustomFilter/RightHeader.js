@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Icon, View, Text } from 'native-base';
+import { View, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'
 import FilterModal from './FilterModal';
 
 export default RightHeader = props => {
