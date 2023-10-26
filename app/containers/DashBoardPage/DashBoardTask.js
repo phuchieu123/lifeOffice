@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, Icon } from 'native-base';
+import { Text, View, Button} from 'native-base';
+import Icon from 'react-native-vector-icons/Ionicons'
 import LoadingLayout from 'components/LoadingLayout';
 import { navigate } from '../../RootNavigation';
 import { TouchableOpacity } from 'react-native';
