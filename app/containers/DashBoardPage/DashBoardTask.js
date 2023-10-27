@@ -63,10 +63,21 @@ export default DashBoardTask = (props) => {
   return (
     <>
       <View style={styles.view}>
-        <Button small rounded block style={{ width: '100%', marginVertical: 2 }} onPress={handleGetTask}>
-          <Text style={{ textAlign: 'center' }}>Công việc</Text>
+        <Button small rounded block 
+        style={{
+          width: '100%',
+          marginVertical: 2,  
+          borderRadius: 20, 
+          padding: 0 , 
+          margin: 0, 
+          backgroundColor: 'rgba(46, 149, 46, 1)', 
+          position:'relative'            
+        }} 
+        
+        onPress={handleGetTask}>
+          <Text block style={{ justifyContent: 'center', alignItems: 'center',padding: 0 , margin : 0, color:'white'  }}>Công việc</Text>
           <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
-        </Button>
+        </Button> 
       </View>
       <LoadingLayout isLoading={loading}>
         {configs.map((config, index) => {
@@ -109,6 +120,7 @@ const CustomButton = (props) => {
 };
 const styles = {
   view: {
+    
     flex: 1,
     flexDirection: 'row',
   },

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Container} from 'native-base';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Image, ScrollView, TouchableOpacity, Text, View } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, Text, View, } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
@@ -29,7 +29,7 @@ import reducer from './reducer';
 import saga from './saga';
 import makeSelectDashBoardPage from './selectors';
 
-import MsgIcon from 'containers/Message/components/MsgIcon';
+import MsgIcon from '../Message/components/MsgIcon';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -119,7 +119,7 @@ export function DashBoardPage(props) {
   return (
    
     <View style={{}}>
-      <CustomHeader title="Trang chủ"
+      <CustomHeader title="Trang chủ" 
         rightHeader={
           <RightHeader
             enableFilterModal
@@ -134,7 +134,7 @@ export function DashBoardPage(props) {
           />
         }
       />
-      {/* <View style={{ flex: 1, backgroundColor: '#eee' }}>
+      <View style={{backgroundColor: '#eee', }}>
         <ScrollView>
           <View style={{ flex: 1, backgroundColor: '#99CC99', paddingBottom: 0 }}>
             <Image
@@ -155,7 +155,7 @@ export function DashBoardPage(props) {
               <Text>{profile.name}</Text>
             </View>
             <View style={{ flexDirection: 'row', position: 'absolute', bottom: 10, right: 0 }}>
-              <MsgIcon iconStyle={{ paddingRight: 5, fontSize: 30 }} />
+              <MsgIcon iconStyle={{ paddingRight: 5, fontSize: 30, color:'white' }} />
               <Icon onPress={() => navigation.navigate('SettingPage')} name='user-circle' type='FontAwesome' style={{ paddingRight: 10, fontSize: 30, color: '#fff' }} />
               <Ionicons onPress={() => navigation.navigate('FingerprintUser')} name='settings' type='Ionicons' style={{ paddingRight: 10, fontSize: 30, color: '#fff' }} />
             </View>
@@ -211,7 +211,7 @@ export function DashBoardPage(props) {
               }
 
             </View>
-            {/* <View style={styles.view}>
+            <View style={styles.view}>
               {(clientId !== 'HADO') ? null :
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TextManagement', { type: 0 })} >
                   <Icon
@@ -236,18 +236,18 @@ export function DashBoardPage(props) {
                 </TouchableOpacity>
               }
 
-            </View> */}
+            </View> 
 
-            {/* <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
+            <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
             {(clientId !== 'HADO') ? null : <ManageDocument navigation={navigation} incomingData={incomingData} outgoingData={outgoingData} />}
             {!bosRole.GET ? null : <DashBoardBos navigation={navigation} kanbanBosConfigs={kanbanBosConfigs} query={query} />}
             {!taskRole.GET ? null : <DashBoardTask navigation={navigation} kanbanTaskConfigs={kanbanTaskConfigs} query={query} />}
             {!inComingDocumentRole.GET ? null : <IncomingDocument />}
             {!calendarRole.GET ? null : <MeetingSchedule />}
             {/* {!calendarRole.GET ? null : <WorkingSchedule profile={profile} />} */}
-          {/* </View>
-        </ScrollView> */}
-      {/* </View > */}
+          </View>
+        </ScrollView>
+      </View >
       {/* <CustomFooter /> */}
     </View>
   );
@@ -313,8 +313,11 @@ const styles = {
     right: 0,
   },
   wrapper: {
+    paddingTop: 5, 
     bottom: 20,
     // flex: 1,
+    paddingRight: 5,
+    paddingLeft: 5,
     height: 'auto',
     // alignItems: 'flex-end',
     justifyContent: 'flex-end',
@@ -324,6 +327,9 @@ const styles = {
     // borderRadius: 15,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
+    
+    
+
   },
   view: {
     // flex: 1,
