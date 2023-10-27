@@ -1,7 +1,7 @@
 import moment from 'moment';
-import { Container, Icon, Text, Title, View } from 'native-base';
+// import { Container, Icon} from 'native-base';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
@@ -30,6 +30,11 @@ import saga from './saga';
 import makeSelectDashBoardPage from './selectors';
 
 import MsgIcon from 'containers/Message/components/MsgIcon';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import _ from 'lodash';
 import { getDataApprove } from '../../api/approve';
 import { getIncomingDocument } from '../../api/documentary';
@@ -112,7 +117,7 @@ export function DashBoardPage(props) {
   }
 
   return (
-    <Container style={styles.container}>
+    <View style={styles.container}>
       <CustomHeader title="Trang chủ"
         rightHeader={
           <RightHeader
@@ -146,19 +151,19 @@ export function DashBoardPage(props) {
               }}
             />
             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 0, marginBottom: 40 }}>
-              <Title>{profile.name}</Title>
+              <Text>{profile.name}</Text>
             </View>
             <View style={{ flexDirection: 'row', position: 'absolute', bottom: 10, right: 0 }}>
               <MsgIcon iconStyle={{ paddingRight: 5, fontSize: 30 }} />
               <Icon onPress={() => navigation.navigate('SettingPage')} name='user-circle' type='FontAwesome' style={{ paddingRight: 10, fontSize: 30, color: '#fff' }} />
-              <Icon onPress={() => navigation.navigate('FingerprintUser')} name='settings' type='Ionicons' style={{ paddingRight: 10, fontSize: 30, color: '#fff' }} />
+              <Ionicons onPress={() => navigation.navigate('FingerprintUser')} name='settings' type='Ionicons' style={{ paddingRight: 10, fontSize: 30, color: '#fff' }} />
             </View>
           </View>
           <View padder style={styles.wrapper}>
             <View style={styles.view}>
               {hasApprove &&
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Approve')}>
-                  <Icon
+                  <MaterialIcons
                     name="playlist-add-check"
                     type="MaterialIcons"
                     style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
@@ -169,7 +174,7 @@ export function DashBoardPage(props) {
               }
 
               {!customerRole.GET ? null : <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CustomerDetails')}>
-                <Icon
+                <Icon5
                   name="users"
                   type="FontAwesome5"
                   style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
@@ -182,7 +187,7 @@ export function DashBoardPage(props) {
             <View style={styles.view}>
               {!inComingDocumentRole.GET ? null :
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Officialdispatch', { type: 2 })} >
-                  <Icon
+                  <MaterialCommunityIcons
                     name="clipboard-arrow-down"
                     type="MaterialCommunityIcons"
                     style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
@@ -194,7 +199,7 @@ export function DashBoardPage(props) {
 
               {!outGoingDocumentRole.GET ? null :
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Officialdispatch', { type: 1 })}>
-                  <Icon
+                  <MaterialCommunityIcons
                     name="clipboard-arrow-up"
                     type="MaterialCommunityIcons"
                     style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
@@ -243,7 +248,7 @@ export function DashBoardPage(props) {
         </ScrollView>
       </View >
       {/* <CustomFooter /> */}
-    </Container >
+    </View >
   );
 }
 
