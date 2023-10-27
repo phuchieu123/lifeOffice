@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { TouchableNativeFeedback } from 'react-native';
-import { Text, View, Button, Card, ListItem, List, Left, Right, Icon, Body } from 'native-base';
+import { TouchableNativeFeedback, View, Text } from 'react-native';
+import { Button, Card, ListItem, List, Left, Right, } from 'native-base';
 import { INCOMING_DOCUMENT, MEETING_SCHEDULE } from '../../configs/Paths';
 import { handleSearch, serialize } from '../../utils/common';
 import { taskKanbanData } from '../../utils/constants';
@@ -10,6 +10,9 @@ import _ from 'lodash';
 import { getProfile } from '../../utils/authen';
 import { navigate } from '../../RootNavigation';
 import * as RootNavigation from '../../RootNavigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 export default IncomingDocument = (props) => {
     const [data, setData] = useState([]);
@@ -80,48 +83,48 @@ export default IncomingDocument = (props) => {
             <View style={styles.view}>
                 <Button small rounded block style={{ width: '100%', marginVertical: 2, marginBottom: 5 }} onPress={getData}>
                     <Text style={{ textAlign: 'center' }}>Lịch họp</Text>
-                    <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
+                    <Ionicons type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
                 </Button>
             </View>
             <LoadingLayout isLoading={loading}>
                 <View style={{ backgroundColor: '#fff', borderRadius: 10, marginBottom: 5 }} >
-                    <List>
+                    <View>
                         {data.length === 0 ?
 
-                            <ListItem>
-                                <Body>
+                            <View>
+                                <View>
                                     <Text>Không có lịch họp</Text>
-                                </Body>
-                            </ListItem>
+                                </View>
+                            </View>
                             :
                             <>
                                 {data.map((item, index) => {
                                     return <TouchableNativeFeedback onPress={() => { openChildMeeting(item) }} key={`${item._id}`} >
-                                        <ListItem>
-                                            <Body>
+                                        <View>
+                                            <View>
                                                 <Text style={{}}>{item.name}</Text>
                                                 {_.has(item, 'roomMetting.name') ? <Text note>{item.roomMetting.name}</Text> : null}
-                                            </Body>
-                                            <Right >
+                                            </View>
+                                            <View >
                                                 <Text note>{item.timeStartFormat}</Text>
                                                 <Text note>{item.timeEndFormat}</Text>
-                                            </Right>
-                                        </ListItem>
+                                            </View>
+                                        </View>
                                     </TouchableNativeFeedback>
                                 })}
                             </>
                         }
                         <TouchableNativeFeedback onPress={() => RootNavigation.navigate('MeetingSchedulePage')}>
-                            <ListItem>
-                                <Body>
+                            <View>
+                                <View>
                                     <Text>Xem tất cả</Text>
-                                </Body>
-                                <Right>
+                                </View>
+                                <View>
                                     <Icon name="arrow-forward" />
-                                </Right>
-                            </ListItem>
+                                </View>
+                            </View>
                         </TouchableNativeFeedback>
-                    </List>
+                    </View>
                 </View>
             </LoadingLayout>
         </>
