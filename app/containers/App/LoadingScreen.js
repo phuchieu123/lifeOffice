@@ -8,15 +8,15 @@ import { View } from 'react-native';
 import { mergeConfig } from './actions';
 import { createStructuredSelector } from 'reselect';
 
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '../../utils/injectReducer';
+import { useInjectSaga } from '../../utils/injectSaga';
 
 import makeSelectGlobal from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { getData } from '../../utils/storage';
 import TouchID from 'react-native-touch-id'
-import theme from 'utils/customTheme'
+import theme from '../../utils/customTheme'
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { getToken, getApproveToken, getDriverToken } from '../../api/oauth';
 import {

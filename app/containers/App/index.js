@@ -3,8 +3,8 @@ import { BackHandler, DeviceEventEmitter } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from '../../utils/injectReducer';
+import { useInjectSaga } from '../../utils/injectSaga';
 import { isMountedRef, navigate } from '../../RootNavigation';
 import Navigator from './Navigator';
 import reducer from './reducer';
@@ -89,7 +89,6 @@ function App(props) {
       clearAllData()
     }
     // navigate('Login')
-
     if (!isLoggedIn && socket) socket.close()
   }, [isLoggedIn])
 

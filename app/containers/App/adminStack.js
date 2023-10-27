@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { DeviceEventEmitter } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import theme from 'utils/customTheme';
+import theme from '../../utils/customTheme';
 import { MODULE } from '../../utils/constants';
 import CrmPage from '../CrmPage';
 import DashBoardPage from '../DashBoardPage';
