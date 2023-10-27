@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { View, List, ListItem, Text, Icon, Button, Body, Right } from 'native-base';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
-import Modal from 'react-native-modal';
-import { makeSelectKanbanTaskConfigs, makeSelectDepartmentsByLevel } from '../../containers/App/selectors';
 import SingleAPISearch from 'components/CustomMultiSelect/SingleAPISearch';
 import { API_USERS } from 'configs/Paths';
 import moment from 'moment';
+import { Body, Button, Icon, List, ListItem, Text, View } from 'native-base';
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-native-modal';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
+import { makeSelectDepartmentsByLevel, makeSelectKanbanTaskConfigs } from '../../containers/App/selectors';
 import DepartmentSelect from '../CustomMultiSelect/DepartmentSelect';
 import Search from '../CustomMultiSelect/Search';
-import _, { isEqual } from 'lodash'
-import { BackHandler } from 'react-native';
 import { DateRangePicker } from '../DateRangePicker';
 
 const DATE = 'YYYY-MM-DD'
