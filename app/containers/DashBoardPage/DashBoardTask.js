@@ -71,11 +71,11 @@ export default DashBoardTask = (props) => {
           padding: 0 , 
           margin: 0, 
           backgroundColor: 'rgba(46, 149, 46, 1)', 
-          position:'relative'            
+          
         }} 
         
         onPress={handleGetTask}>
-          <Text block style={{ justifyContent: 'center', alignItems: 'center',padding: 0 , margin : 0, color:'white'  }}>Công việc</Text>
+          <Text block style={{ justifyContent: 'center', alignItems: 'center',padding: 0 , margin : 0, color:'white' , flex: 1, width:'100vw  ' }}>Công việc</Text>
           <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
         </Button> 
       </View>
@@ -140,8 +140,10 @@ const styles = {
     margin: 3,
     height: 100,
     paddingHorizontal: 5,
+    // alignItems: 'center', 
+    // justifyContent: 'center'
   },
-  textButton: { color: 'black', marginBottom: 10, marginTop: 18, fontSize: 24, fontWeight: 'bold', textAlign: 'center' },
+  textButton: { color: 'black', marginBottom: 10, marginTop: 10, paddingTop: 8, fontSize: 24, fontWeight: 'bold', textAlign: 'center' },
   textNote: { color: 'black', marginBottom: 10, fontSize: 10, textAlign: 'center' },
 
   textNote_2: {

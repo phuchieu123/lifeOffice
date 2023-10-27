@@ -118,7 +118,7 @@ export function DashBoardPage(props) {
 
   return (
    
-    <View style={{}}>
+    <View style={{paddingBottom: 100}}>
       <CustomHeader title="Trang chủ" 
         rightHeader={
           <RightHeader

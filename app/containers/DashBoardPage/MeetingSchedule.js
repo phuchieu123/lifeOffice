@@ -84,25 +84,25 @@ export default IncomingDocument = (props) => {
                 <Button small rounded block style={{ width: '100%',
           marginVertical: 2, 
           borderRadius: 20, 
-          padding: 0 , 
-          margin: 0, 
           backgroundColor: 'rgba(46, 149, 46, 1)', 
-          position:'relative'
+            
           }} 
-          onPress={getData}>
-                    <Ionicons type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
-                    <Text style={{ textAlign: 'center', color: 'white', display: 'block',}}>Lịch họp</Text>
-                   
+          onPress={getData}>    
+                    <View style={{ width:'100%', position: 'relative' }}>
+                        <Text style={{ color: 'white',flex: 1}}>Lịch họp </Text>
+                    </View>
+                    <Ionicons name='reload' style={{ right: 0, color: '#fff', position:'absolute', right: -140 }} />
+
                 </Button>
             </View>
             <LoadingLayout isLoading={loading}>
-                <View style={{ backgroundColor: '#fff', borderRadius: 10, marginBottom: 5 }} >
-                    <View>
+                <View style={{ backgroundColor: '#fff', borderRadius: 10, marginBottom: 5, paddingLeft: 5, paddingTop: 10 }} >
+                    <View >
                         {data.length === 0 ?
 
-                            <View>
-                                <View>
-                                    <Text>Không có lịch họp</Text>
+                            <View style={{borderBottomColor:'#b2b2b2', borderBottomWidth: 1}}>
+                                <View style={{padding: 10}}>
+                                    <Text >Không có lịch họp</Text>
                                 </View>
                             </View>
                             :
@@ -110,7 +110,7 @@ export default IncomingDocument = (props) => {
                                 {data.map((item, index) => {
                                     return <TouchableNativeFeedback onPress={() => { openChildMeeting(item) }} key={`${item._id}`} >
                                         <View>
-                                            <View>
+                                            <View >
                                                 <Text style={{}}>{item.name}</Text>
                                                 {_.has(item, 'roomMetting.name') ? <Text note>{item.roomMetting.name}</Text> : null}
                                             </View>
@@ -124,8 +124,8 @@ export default IncomingDocument = (props) => {
                             </>
                         }
                         <TouchableNativeFeedback onPress={() => RootNavigation.navigate('MeetingSchedulePage')}>
-                            <View>
-                                <View>
+                            <View  >
+                                <View style={{padding: 10}}>
                                     <Text>Xem tất cả</Text>
                                 </View>
                                 <View>

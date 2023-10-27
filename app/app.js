@@ -16,7 +16,7 @@ const customTheme = extendTheme(theme);
 function AppRoot() {
   return (
     <Provider store={store}>
-      <NativeBaseProvider theme={customTheme}>
+      <NativeBaseProvider>
           <App />
       </NativeBaseProvider>
     </Provider>
