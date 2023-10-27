@@ -81,9 +81,18 @@ export default IncomingDocument = (props) => {
     return (
         <>
             <View style={styles.view}>
-                <Button small rounded block style={{ width: '100%', marginVertical: 2, marginBottom: 5 }} onPress={getData}>
-                    <Text style={{ textAlign: 'center' }}>Lịch họp</Text>
+                <Button small rounded block style={{ width: '100%',
+          marginVertical: 2, 
+          borderRadius: 20, 
+          padding: 0 , 
+          margin: 0, 
+          backgroundColor: 'rgba(46, 149, 46, 1)', 
+          position:'relative'
+          }} 
+          onPress={getData}>
                     <Ionicons type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
+                    <Text style={{ textAlign: 'center', color: 'white', display: 'block',}}>Lịch họp</Text>
+                   
                 </Button>
             </View>
             <LoadingLayout isLoading={loading}>

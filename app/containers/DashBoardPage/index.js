@@ -147,7 +147,6 @@ export function DashBoardPage(props) {
                 height: 120,
                 alignSelf: 'center',
                 resizeMode: 'cover',
-                borderWidth: 2,
                 borderRadius: 75,
               }}
             />
