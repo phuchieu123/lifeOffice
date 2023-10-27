@@ -17,7 +17,7 @@ export default ManageDocument = (props) => {
     const [loading, setLoading] = useState();
 
     useEffect(() => {
-        getData();
+        getData()
     }, []);
 
     useEffect(() => {

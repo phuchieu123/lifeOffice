@@ -1,5 +1,5 @@
 import moment from 'moment';
-// import { Container, Icon} from 'native-base';
+import { Container} from 'native-base';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Image, ScrollView, TouchableOpacity, Text, View } from 'react-native';
 import { connect } from 'react-redux';
@@ -117,7 +117,8 @@ export function DashBoardPage(props) {
   }
 
   return (
-    <View style={styles.container}>
+   
+    <View style={{}}>
       <CustomHeader title="Trang chủ"
         rightHeader={
           <RightHeader
@@ -129,11 +130,11 @@ export function DashBoardPage(props) {
             enableDatePicker
             startDate={query.startDate}
             endDate={query.endDate}
-            onSave={handleFilter}
+            onSave={handleFilter} 
           />
         }
       />
-      <View style={{ flex: 1, backgroundColor: '#eee' }}>
+      {/* <View style={{ flex: 1, backgroundColor: '#eee' }}>
         <ScrollView>
           <View style={{ flex: 1, backgroundColor: '#99CC99', paddingBottom: 0 }}>
             <Image
@@ -237,18 +238,18 @@ export function DashBoardPage(props) {
 
             </View> */}
 
-            <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
+            {/* <RenderBanner viewStyle={{ height: 180, borderRadius: 20, margin: 5 }} />
             {(clientId !== 'HADO') ? null : <ManageDocument navigation={navigation} incomingData={incomingData} outgoingData={outgoingData} />}
             {!bosRole.GET ? null : <DashBoardBos navigation={navigation} kanbanBosConfigs={kanbanBosConfigs} query={query} />}
             {!taskRole.GET ? null : <DashBoardTask navigation={navigation} kanbanTaskConfigs={kanbanTaskConfigs} query={query} />}
             {!inComingDocumentRole.GET ? null : <IncomingDocument />}
             {!calendarRole.GET ? null : <MeetingSchedule />}
-            {!calendarRole.GET ? null : <WorkingSchedule profile={profile} />}
-          </View>
-        </ScrollView>
-      </View >
+            {/* {!calendarRole.GET ? null : <WorkingSchedule profile={profile} />} */}
+          {/* </View>
+        </ScrollView> */}
+      {/* </View > */}
       {/* <CustomFooter /> */}
-    </View >
+    </View>
   );
 }
 

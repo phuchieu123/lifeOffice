@@ -13,7 +13,7 @@ import * as RootNavigation from '../../RootNavigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-    
+
 export default IncomingDocument = (props) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState();
