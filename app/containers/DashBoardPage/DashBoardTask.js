@@ -75,10 +75,10 @@ export default DashBoardTask = (props) => {
         }} 
         
         onPress={handleGetTask}>
-          <Text block style={{ justifyContent: 'center', alignItems: 'center',padding: 0 , margin : 0, color:'white' , flex: 1, width:'100vw  ' }}>Công việc</Text>
-          <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
+          <Text block style={{ justifyContent: 'center', alignItems: 'center', color:'white' , flex: 1, width:'100vw  ' }}>Công việc</Text>
+          <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: -140, color: '#fff' }} />
         </Button> 
-      </View>
+      </View>   
       <LoadingLayout isLoading={loading}>
         {configs.map((config, index) => {
           return <View style={styles.view} key={`CHKD_${index}`} >
