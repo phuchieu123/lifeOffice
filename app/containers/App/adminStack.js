@@ -1,5 +1,7 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { Icon } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import React, { useEffect, useState } from 'react';
 import { DeviceEventEmitter } from 'react-native';
 import { connect } from 'react-redux';
@@ -80,7 +82,7 @@ export function AdminStackScreen(props) {
           options={{
             tabBarLabel: 'ĐHVB',
             tabBarIcon: ({ color }) => (
-              <Icon name="description" type="MaterialIcons" style={{ color: color, fontSize: 25, bottom: 3 }} />
+              <MaterialIcons name="description" type="MaterialIcons" style={{ color: color, fontSize: 25, bottom: 3 }} />
             ),
           }}
           name="TextManagement"
@@ -91,7 +93,7 @@ export function AdminStackScreen(props) {
           options={{
             tabBarLabel: 'Công việc',
             tabBarIcon: ({ color }) => (
-              <Icon name="business-center" type="MaterialIcons" style={{ color: color, fontSize: 25, bottom: 3 }} />
+              <MaterialIcons name="business-center" type="MaterialIcons" style={{ color: color, fontSize: 25, bottom: 3 }} />
             ),
           }}
           name="Project"
@@ -101,7 +103,7 @@ export function AdminStackScreen(props) {
         <AdminTab.Screen
           options={{
             // tabBarLabel: I18n.t('footer.other'),
-            tabBarIcon: ({ color }) => <Icon name="folder-open-sharp" type="Ionicons" style={{ color: color, fontSize: 20 }} />,
+            tabBarIcon: ({ color }) => <Ionicons name="folder-open-sharp" type="Ionicons" style={{ color: color, fontSize: 20 }} />,
           }}
           name="LifeDriver"
           component={LifeDriver}
@@ -111,7 +113,7 @@ export function AdminStackScreen(props) {
         options={{
           tabBarLabel: 'Thông báo',
           tabBarIcon: ({ color }) => (
-            <Icon name="notifications" type="MaterialIcons" style={{ color: color, fontSize: 20 }} />
+            <MaterialIcons name="notifications" type="MaterialIcons" style={{ color: color, fontSize: 20 }} />
           ),
           tabBarBadge: isNotRead > 999 ? '999+' : isNotRead || null,
         }}
