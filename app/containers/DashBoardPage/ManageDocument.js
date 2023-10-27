@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { BackHandler, DeviceEventEmitter } from 'react-native';
-import { Text, View, Button, ListItem, List, Right, Icon, Body } from 'native-base';
+import { BackHandler, DeviceEventEmitter, Text, View } from 'react-native';
+import { Button, ListItem, List, Right, Body } from 'native-base';
 import { INCOMING_DOCUMENT, API_INCOMMING_DOCUMENT } from '../../configs/Paths';
 import { handleSearch, serialize } from '../../utils/common';
 import LoadingLayout from 'components/LoadingLayout';
@@ -8,6 +8,8 @@ import moment from 'moment';
 import _ from 'lodash';
 import * as RootNavigation from '../../RootNavigation';
 import { TouchableNativeFeedback, TouchableOpacity } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default ManageDocument = (props) => {
     const { navigation, incomingData, outgoingData } = props;
@@ -65,13 +67,13 @@ export default ManageDocument = (props) => {
             <View style={styles.view}>
                 <Button small rounded block style={{ width: '100%', marginVertical: 2, marginBottom: 5 }} onPress={getData} >
                     <Text style={{ textAlign: 'center' }}>Điều hành văn bản</Text>
-                    <Icon type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
+                    <Ionicons type='Ionicons' name='reload' style={{ position: 'absolute', right: 0, color: '#fff' }} />
                 </Button>
             </View>
             <LoadingLayout isLoading={loading}>
                 <View style={styles.vision}>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TextManagement', { typeText: 0 })} >
-                        <Icon
+                        <MaterialCommunityIcons
                             name="clipboard-arrow-down"
                             type="MaterialCommunityIcons"
                             style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
@@ -80,7 +82,7 @@ export default ManageDocument = (props) => {
                         <Badge count={incomingData} />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('TextManagement', { typeText: 1 })}>
-                        <Icon
+                        <MaterialCommunityIcons
                             name="clipboard-arrow-up"
                             type="MaterialCommunityIcons"
                             style={{ textAlign: 'center', fontSize: 40, color: 'green', margin: 10 }}
