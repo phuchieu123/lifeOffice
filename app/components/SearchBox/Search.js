@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Icon, Button, Text, Item, Input, View } from 'native-base';
+import {View, Text, TextInput} from 'react-native';
+import { Icon, Button} from 'native-base';
 import { Keyboard, Platform } from 'react-native';
 import theme from 'utils/customTheme'
 
@@ -35,11 +36,11 @@ const SearchBox = (props) => {
     }
 
     return (
-        <Item style={{ zIndex: 20, backgroundColor: '#fff', alignSelf: 'center', marginLeft: 8, height: 40 }}>
+        <View style={{ zIndex: 20, backgroundColor: '#fff', alignSelf: 'center', marginLeft: 8, height: 40 }}>
             <Icon name="search" onPress={() => onChange(textSearch)} style={{ color: theme.brandPrimary }} />
-            <Input placeholder="Tìm kiếm" value={textSearch} onChangeText={handleSearch} onSubmitEditing={Keyboard.dismiss} autoCapitalize='none' />
+            <TextInput placeholder="Tìm kiếm" value={textSearch} onChangeText={handleSearch} onSubmitEditing={Keyboard.dismiss} autoCapitalize='none' />
             <Icon name="remove" type="MaterialIcons" onPress={onRemove} style={{ color: theme.brandPrimary }} />
-        </Item >
+        </View >
     );
 };
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Icon, Button, Text, Item, Input } from 'native-base';
+import {View, Text, TextInput} from 'react-native';
+import { Button } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { Keyboard, Platform } from 'react-native';
 
 const SearchBox = (props) => {
@@ -40,18 +42,18 @@ const SearchBox = (props) => {
     }
 
     return (
-        <Item style={{ position: 'absolute', width: '95%', zIndex: 20, backgroundColor: '#fff', alignSelf: 'center', marginTop: Platform.OS === 'ios' ? 28 : 8, height: 40 }}>
+        <View style={{ position: 'absolute', width: '95%', zIndex: 20, backgroundColor: '#fff', alignSelf: 'center', marginTop: Platform.OS === 'ios' ? 28 : 8, height: 40 }}>
             <Button transparent onPress={() => onChange(textSearch)}>
                 <Icon name="search" />
             </Button>
-            <Input placeholder="Tìm kiếm" value={textSearch} onChangeText={handleSearch} onSubmitEditing={Keyboard.dismiss} />
+            <TextInput placeholder="Tìm kiếm" value={textSearch} onChangeText={handleSearch} onSubmitEditing={Keyboard.dismiss} />
             <Button iconLeft transparent onPress={onRemove}>
                 <Icon name="remove" type="MaterialIcons" />
             </Button>
             <Button transparent onPress={onClose}>
                 <Text>Đóng</Text>
             </Button>
-        </Item >
+        </View >
     );
 };
 
