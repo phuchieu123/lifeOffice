@@ -129,7 +129,7 @@ export default IncomingDocument = (props) => {
                                     <Text>Xem tất cả </Text>
                                 </View>
                                 <View>
-                                    <Icon name="arrow-forward" style={{paddingRight:10}} />
+                                    <Icon name="arrow-forward" style={{paddingRight:10  }} />
                                 </View>
                             </View>
                         </TouchableNativeFeedback>  

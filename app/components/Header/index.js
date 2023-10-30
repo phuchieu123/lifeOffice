@@ -31,7 +31,7 @@
                         onPress={handleGoBack}
                         style={{ color: '#fff', top: 3 }}
                     />}
-                    <Text style={{ marginLeft: 10, fontSize: 20, color:'white' }}>{title}</Text>
+                    <Text style={{ marginLeft: 10, fontSize: 20, color:'white', paddingTop: 10 }}>{title}</Text>
                 </View>
                 <View style={{ top: 2 }}>
                     {rightHeader}
