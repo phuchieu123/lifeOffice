@@ -121,6 +121,7 @@ const styles = {
     justifyContent: 'center',
     // alignSelf: 'stretch',
     backgroundColor: '#eee',
+    marginVertical: 15
     // borderRadius: 15,
     
 
