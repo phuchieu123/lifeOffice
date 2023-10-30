@@ -38,24 +38,24 @@ export default function LifeDriver() {
         <View style={{ flex: 1 }}>
             <CustomHeader title='Kho dữ liệu' />
 
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row', backgroundColor: "rgba(46, 149, 46, 1)",borderTopWidth: 1, borderTopColor:"#666666" }}>
                 <TouchableOpacity
                     style={{ flex: 1, alignItems: 'center', padding: 10 }}
                     onPress={() => setActiveTab('company')}
                 >
-                    <Text>Công ty</Text>
+                    <Text style={styles.text}>Công ty</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={{ flex: 1, alignItems: 'center', padding: 10 }}
                     onPress={() => setActiveTab('users')}
                 >
-                    <Text>Của tôi</Text>
+                    <Text style={styles.text}>Của tôi</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={{ flex: 1, alignItems: 'center', padding: 10 }}
                     onPress={() => setActiveTab('share')}
                 >
-                    <Text>Chia sẻ</Text>
+                    <Text style={styles.text}>Chia sẻ</Text>
                 </TouchableOpacity>
             </View>
 
@@ -72,4 +72,10 @@ export default function LifeDriver() {
             )}
         </View>
     );
+}
+
+const styles ={
+    text:{
+        color:'white' 
+    }
 }

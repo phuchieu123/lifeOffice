@@ -29,9 +29,9 @@
                         name="arrow-back"
                         type="MaterialIcons"
                         onPress={handleGoBack}
-                        style={{ color: '#fff', top: 3 }}
+                        style={{ color: '#fff', top: 3, justifyContent:'center' }}
                     />}
-                    <Text style={{ marginLeft: 10, fontSize: 20, color:'white', paddingTop: 10 }}>{title}</Text>
+                    <Text style={{ marginLeft: 10, fontSize: 20, color:'white'}}>{title}</Text>
                 </View>
                 <View style={{ top: 2 }}>
                     {rightHeader}
