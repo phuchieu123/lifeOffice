@@ -174,9 +174,9 @@ const RenderPage = (props) => {
         onChangePath(`${newPath}/`)
     }
 
-    return <Container>
+    return <View>
         <SearchBox onChange={onChangeSearchContent} />
-        <Item style={{ padding: 5 }}>
+        <View style={{ padding: 5 }}>
             <Icon name='home' style='Entypo' onPress={toMainpage} />
             {path === "/"
                 ? <Text numberOfLines={1}>{'Trang chủ '}</Text>
@@ -189,7 +189,7 @@ const RenderPage = (props) => {
                     onPress={goBack}
                     style={{ position: 'absolute', right: 0 }}
                 />}
-        </Item >
+        </View >
         <DriverPage
             reload={reload}
             query={{ clientId }}
@@ -209,9 +209,9 @@ const RenderPage = (props) => {
 
         <Modal isVisible={record}>
             <View style={{ backgroundColor: '#fff', borderRadius: 10 }}>
-                <ListItem itemHeader itemDivider style={{ borderRadius: 10 }}>
+                <View itemHeader itemDivider style={{ borderRadius: 10 }}>
                     <Text>Ghi âm</Text>
-                </ListItem>
+                </View>
                 <Records onClose={() => setRecord(false)} />
             </View>
         </Modal>
@@ -226,7 +226,7 @@ const RenderPage = (props) => {
         }
 
         <DetectionModal isVisible={ocr} onClose={() => setOCR(false)} />
-    </Container >
+    </View >
 }
 
 const mapStateToProps = createStructuredSelector({
