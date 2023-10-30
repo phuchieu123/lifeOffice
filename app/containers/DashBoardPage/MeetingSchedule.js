@@ -124,15 +124,15 @@ export default IncomingDocument = (props) => {
                             </>
                         }
                         <TouchableNativeFeedback onPress={() => RootNavigation.navigate('MeetingSchedulePage')}>
-                            <View  >
+                            <View  style={{ flexDirection: 'row', alignItems:'center', justifyContent: 'space-between'}}>
                                 <View style={{padding: 10}}>
-                                    <Text>Xem tất cả</Text>
+                                    <Text>Xem tất cả </Text>
                                 </View>
                                 <View>
-                                    <Icon name="arrow-forward" />
+                                    <Icon name="arrow-forward" style={{paddingRight:10}} />
                                 </View>
                             </View>
-                        </TouchableNativeFeedback>
+                        </TouchableNativeFeedback>  
                     </View>
                 </View>
             </LoadingLayout>
